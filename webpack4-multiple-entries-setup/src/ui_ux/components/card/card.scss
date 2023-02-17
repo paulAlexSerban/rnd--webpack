@@ -1,0 +1,194 @@
+@import "../../abstracts/variables";
+
+$moduleName: 'card';
+
+.#{$moduleName} {
+  &__base {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 55rem;
+
+    // @include respond(tab-port) {
+    @include respond(touch-phone-only) {
+      height: auto;
+      border-radius: 3px;
+      background-color: $c-white;
+      box-shadow: 0 1.5rem 4rem rgba($c-black, .15);
+    }
+
+    &:hover .#{$moduleName}__side--front {
+      transform: rotateY(-180deg);
+
+      @include respond(touch-phone-only) {
+        transform: rotateY(0);
+      }
+    }
+
+    &:hover .#{$moduleName}__side--back {
+      transform: rotateY(0deg);
+    }
+
+
+  }
+
+  &__side {
+    @include absCenter(0, 0, false);
+    height: 55rem;
+    transition: all 0.8s ease;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($c-black, .15);
+
+    @include respond(touch-phone-only) {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+    }
+
+    &--front {
+      background-color: $c-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      @include respond(touch-phone-only) {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      &-1 {
+        background-image: linear-gradient(to right bottom, $c-primary-2, $c-primary-4);
+      }
+
+      &-2 {
+        background-image: linear-gradient(to right bottom, $c-selective-yellow, $c-orange-crayola);
+      }
+
+      &-3 {
+        background-image: linear-gradient(to right bottom, $c-electric-green, $c-medium-spring-green);
+      }
+    }
+  }
+
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $c-primary-2, $c-primary-4), url('../../../assets/images/nat-5.jpg');
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, $c-selective-yellow, $c-orange-crayola), url('../../../assets/images/nat-6.jpg');
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, $c-electric-green, $c-medium-spring-green), url('../../../assets/images/nat-7.jpg');
+    }
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $c-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    text-align: right;
+    width: 55%;
+    line-height: 3rem;
+  }
+
+  &__heading-span {
+    padding: 0.5rem 1rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, rgba($c-primary-2, 0.85), rgba($c-primary-4, 0.85));
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, rgba($c-selective-yellow, 0.85), rgba($c-orange-crayola, 0.85));
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, rgba($c-electric-green, 0.85), rgba($c-medium-spring-green, 0.85));
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    @include respond(touch-phone-only) {
+      padding: 1rem 3rem;
+    }
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: $default-font-size - 0.1;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $c-cultured;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    @include absCenter;
+    width: 90%;
+    text-align: center;
+
+    @include respond(touch-phone-only) {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+  }
+
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $c-white;
+
+    @include respond(touch-phone-only) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    height: 6rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+
+    @include respond(touch-phone-only) {
+      margin-bottom: 4rem;
+    }
+  }
+}

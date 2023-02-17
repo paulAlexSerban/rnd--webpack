@@ -1,0 +1,69 @@
+@import '../../abstracts/variables';
+
+$moduleName: 'header';
+
+.#{$moduleName} {
+  &__base {
+    position: relative;
+    height: 55vh;
+    background-image: 
+        linear-gradient(to right bottom, rgba($c-primary-2, 0.8), rgba($c-primary-4, 0.8)), 
+        url('../../../assets/images/hero-small.jpg');
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 45vh, 0 100%);
+    margin-bottom: 5rem;
+
+    @include respond(min-tab-port) {
+      clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 100%);
+      height: 95vh;
+      margin-bottom: 0;
+    }
+
+    @include respond(min-desktop) {
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 105vh;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // this is needed for Safari support
+      only screen and (min-width: 125em) { // 600px/16 = 37.5em && 2000px/16 = 125em
+      background-image: 
+      linear-gradient(to right bottom, rgba($c-primary-2, 0.8), rgba($c-primary-4, 0.8)), 
+      url('../../../assets/images/hero.jpg');
+    }
+  }
+
+  &__logo-box {
+    @include absCenter(50%, 15%);
+
+    @include respond(min-tab-port) {
+      @include absCenter(8rem, 6rem, false);
+    }
+
+    @include respond(min-desktop) {
+      @include absCenter(10rem, 8rem, false);
+    }
+  }
+
+  &__logo {
+    height: 4.5rem;
+
+    @include respond(min-desktop) {
+      height: 6rem;
+    }
+  }
+
+  &__text-box {
+    @include absCenter(50%, 55%);
+    text-align: center;
+
+    @include respond(min-tab-port) {
+      @include absCenter(50%, 40%);
+    }
+
+    @include respond(min-desktop) {
+      @include absCenter(50%, 50%);
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import '../../abstracts/variables';
+
+$moduleName: 'footer';
+
+.#{$moduleName} {
+  &__base {
+    background-color: $c-davys-grey;
+    padding: 8rem 0;
+    font-size: 1.4rem;
+
+    @include respond(min-tab-port) {
+      padding: 10rem 2rem;
+    }
+  }
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 6rem;
+
+    @include respond(min-tab-port) {
+      margin-bottom: 8rem;
+    }
+  }
+
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__navigation {
+    border-top: 1px solid $c-lightgrey;
+    padding-top: 2rem;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+
+    &:link,
+    &:visited {
+      color: $c-cultured;
+      background-color: $c-davys-grey;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    &:hover,
+    &:active {
+      color: $c-primary-2;
+      box-shadow: 0 1rem 2rem rgba($c-black, 0.14);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+
+  &__copyright {
+    color: rgba($c-lightgrey, 0.5);
+    border-top: 1px solid $c-lightgrey;
+    padding-top: 2rem;
+    width: 100%;
+    text-align: center;
+
+    span {
+      display: block;
+    }
+  }
+}

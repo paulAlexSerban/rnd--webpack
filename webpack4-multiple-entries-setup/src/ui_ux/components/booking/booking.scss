@@ -1,0 +1,45 @@
+@import "../../abstracts/variables";
+
+$moduleName: 'booking';
+
+.#{$moduleName} {
+  &__base {
+    background-image: linear-gradient(to right, 
+                      rgba($c-white, 0.8) 0%, 
+                      rgba($c-white, 0.8) 100%),
+                      url('../../../assets/images/nat-10.jpg');
+
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0, 1.5rem 4rem rgba($c-black, 0.2);
+
+    @include respond(min-tab-port) {
+      background-image: linear-gradient(105deg, 
+                        rgba($c-white, 0.8) 0%, 
+                        rgba($c-white, 0.8) 65%, 
+                        transparent 65%),
+                        url('../../../assets/images/nat-10.jpg');
+    }
+
+    @include respond(min-desktop) {
+      background-image: linear-gradient(105deg, 
+                        rgba($c-white, 0.8) 0%, 
+                        rgba($c-white, 0.8) 50%, 
+                        transparent 50%),
+                        url('../../../assets/images/nat-10.jpg');
+    }
+  }
+
+  &__form {
+    width: 100%;
+    padding: 6rem;
+
+    @include respond(min-tab-port) {
+      width: 65%;
+    }
+
+    @include respond(min-desktop) {
+      width: 53%;
+    }
+  }
+}

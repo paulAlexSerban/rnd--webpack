@@ -1,0 +1,20 @@
+@import '../../ui_ux/main.scss';
+@import '../../ui_ux/layout/grid/grid';
+
+// NON JS Components
+@import '../../ui_ux/layout/main/main.scss';
+@import '../../ui_ux/components/button/button.scss';
+@import '../../ui_ux/components/composition/composition.scss';
+@import '../../ui_ux/components/feature-box/feature-box.scss';
+@import '../../ui_ux/components/story/story.scss';
+@import '../../ui_ux/components/bg-video/bg-video.scss';
+@import '../../ui_ux/components/form/form.scss';
+@import '../../ui_ux/layout/footer/footer.scss';
+@import '../../ui_ux/components/popup/popup.scss';
+
+// uncomment if css is needed for basepage specific styles
+// $moduleName: 'basepage';
+// .#{$moduleName} {
+//   &__base {
+//   }
+// }

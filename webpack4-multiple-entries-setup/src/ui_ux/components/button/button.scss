@@ -1,0 +1,108 @@
+@use "sass:math";
+@import "../../abstracts/variables";
+
+$moduleName: 'button';
+
+.#{$moduleName} {
+  &__base {
+    &,
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      border-radius: 100px;
+      transition: all 0.2s;
+      font-size: $default-font-size;
+      position: relative;
+
+      // changes for the <button> element
+      border: none;
+
+      @include respond(min-tab-port) {
+        font-size: $default-font-size;
+        padding: 1.5rem 4rem;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba($c-black, 0.2);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($c-black, 0.2);
+      outline: none
+    }
+
+    &::after {
+      @include absCenter(0, 0, false);
+
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 100px;
+      z-index: -1;
+      transition: all .4s;
+    }
+  }
+
+  &--white {
+    background-color: $c-white;
+    color: $c-quick-silver;
+
+    &::after {
+      background-color: $c-white;
+    }
+  }
+
+  &--green {
+    background-color: $c-primary-3;
+    color: $c-white;
+
+    &::after {
+      background-color: $c-primary-3;
+    }
+  }
+
+  &--animated {
+    animation: moveInButton .5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+
+  &__text {
+
+    &:link,
+    &:visited {
+      color: $c-primary-4;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 0.1rem solid $c-primary-4;
+      font-size: $default-font-size;
+      transition: all .5s;
+      padding-top: math.div($gutter-horizontal , 4);
+      padding: 0.6rem;
+    }
+
+    &:hover {
+      background-color: $c-primary-4;
+      color: $c-white;
+      box-shadow: 0 1rem 2rem rgba($c-black, 0.15);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      box-shadow: 0 .5rem 1rem rgba($c-black, 0.15);
+      transform: translateY(0);
+    }
+  }
+}

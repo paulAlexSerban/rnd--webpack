@@ -1,0 +1,69 @@
+@use "sass:math";
+@import '../../abstracts/variables';
+
+.grid {
+  &__row {
+    @include clearfix;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+
+    @include respond(min-tab-port) {
+      max-width: $grid-width; // 1440px
+    }
+
+    &:not(:last-child) {
+      // select everything except the last child
+      margin-bottom: math.div($gutter-vertical , 2);
+
+      @include respond(min-tab-port) {
+        margin-bottom: $gutter-vertical;
+      }
+
+    }
+
+    .col {
+      &-1-of-2 {
+        // half of width minus the gutter
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+      }
+
+      &-1-of-3 {
+        width: calc((100% - (2 * #{$gutter-horizontal})) / 3);
+      }
+
+      &-2-of-3 {
+        width: calc(2 * ((100% - (2 * #{$gutter-horizontal})) / 3) + #{$gutter-horizontal});
+      }
+
+      &-1-of-4 {
+        // a fourth of the width minus the three gutters
+        width: calc((100% - (3 * #{$gutter-horizontal})) / 4);
+      }
+
+      &-2-of-4 {
+        // two fourths of the width plus the gutter
+        width: calc(2 * ((100% - (3 * #{$gutter-horizontal})) / 4) + #{$gutter-horizontal});
+      }
+
+      &-3-of-4 {
+        width: calc(3 * ((100% - (3 * #{$gutter-horizontal})) / 4) + (2 * #{$gutter-horizontal}));
+      }
+    }
+  }
+}
+
+[class^="col-"] {
+  // select all elements for which the class starts with 'col''
+  // NOTE - the 'col-' class needs to be the first in the class list
+  float: left;
+
+  &:not(:last-child) {
+    margin-right: $gutter-horizontal;
+  }
+
+  @include respond(touch-phone-only) {
+    width: 100% !important;
+  }
+}

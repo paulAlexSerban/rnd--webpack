@@ -1,0 +1,73 @@
+@import '../../abstracts/variables';
+
+$moduleName: 'section';
+
+.#{$moduleName} {
+  &__base {
+    padding-left: $basesize * 2;
+    padding-right: $basesize * 2;
+
+    @include respond(min-tab-port) {
+      padding-left: $basesize * 4;
+      padding-right: $basesize * 4;
+    }
+
+    &--about {
+      margin-top: -20vh;
+      padding-top: 20rem;
+      padding-bottom: 20rem;
+      background-color: $c-cultured;
+
+      @include respond(min-tab-port) {
+        margin-top: -35vh;
+        padding-top: 25rem;
+        padding-bottom: 25rem;
+      }
+    }
+
+    &--features {
+      padding-top: 15rem;
+      padding-bottom: 15rem;
+      background-image: 
+      linear-gradient(to right bottom, rgba($c-primary-2, 0.8), rgba($c-primary-4, 0.8)), 
+      url('../../../assets/images/nat-4.jpg');
+      background-size: cover;
+      transform: skewY(-7deg);
+      margin-top:-10rem;
+      background-color: $c-cultured;
+
+      & > * {
+        transform: skewY(7deg);
+      }
+
+      @include respond(min-tab-port) {
+        padding-top: 20rem;
+        padding-bottom: 20rem;
+      }
+    }
+
+    &--tours {
+      padding: 20rem 0 10rem 0;
+      margin-top: -10rem;
+      background-color: $c-cultured;
+
+      @include respond(min-tab-port) {
+        padding: 25rem 0 15rem 0;
+      }
+    }
+
+    &--stories {
+      padding: 10rem 0;
+      position: relative;
+      
+      @include respond(min-tab-port) {
+        padding: 15rem 0;
+      }
+    }
+
+    &--bookings {
+      padding: 15rem 0;
+      background-image: linear-gradient(to right bottom, $c-primary-2, $c-primary-4);
+    }
+  }
+}

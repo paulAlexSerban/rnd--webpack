@@ -1,0 +1,75 @@
+@import "../../abstracts/variables";
+
+$moduleName: 'composition';
+
+.#{$moduleName} {
+  &__base {
+    position: relative;
+    margin-top: 3rem;
+
+    @include respond(min-tab-port) {
+      margin-top: 0;
+    }
+
+    &:hover {
+      .#{$moduleName}__photo:not(:hover) {
+        transform: scale(.85);
+      }
+    }
+  }
+
+  &__photo {
+    border-radius: 2px;
+    z-index: 10;
+    transition: all .2s;
+    float: left;
+    position: absolute;
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem 0 rgba($c-black, 0.4);
+    outline-offset: .5rem;
+
+    @include respond(min-tab-port) {
+      outline-offset: 1.5rem;
+    }
+
+    &--pic-1 {
+      left: 3rem;
+      top: -2rem;
+
+      @include respond(min-tab-port) {
+        left: 0;
+      }
+    }
+
+    &--pic-2 {
+      right: 3rem;
+      top: 5rem;
+
+      @include respond(min-tab-port) {
+        right: 0;
+        top: 2rem;
+      }
+    }
+
+    &--pic-3 {
+      left: 20%;
+      top: 12rem;
+
+      @include respond(min-tab-port) {
+        top: 10rem;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.25) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem 0 rgba($c-black, 0.5);
+      z-index: 20;
+      outline: .5rem solid $c-primary-2;
+
+      @include respond(min-tab-port) {
+        outline: 1.5rem solid $c-primary-2;
+        transform: scale(1.05) translateY(-.5rem);
+      }
+    }
+  }
+}
