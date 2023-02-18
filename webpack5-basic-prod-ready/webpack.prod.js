@@ -1,10 +1,8 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 
-const nodeEnv = process.env.NODE_ENV || "development";
-
 module.exports = merge(common, {
-	mode: nodeEnv,
+	mode: process.env.NODE_ENV || "development",
 	module: {
 		rules: [      {
       test: /\.(png|jpg|svg)$/,

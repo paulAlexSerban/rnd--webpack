@@ -3,13 +3,13 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const distDir = path.resolve(__dirname, "dist");
-const srcDir = path.resolve(__dirname, "src");
+const DIST_DIR = path.resolve(__dirname, "dist");
+const SRC_DIR = path.resolve(__dirname, "src");
 
 module.exports = {
-	entry: path.join(srcDir, "index.js"),
+	entry: path.join(SRC_DIR, "index.js"),
 	output: {
-		path: distDir,
+		path: DIST_DIR,
 		filename: "[name].[contenthash:12].js",
 		publicPath: "",
 		clean: true,
@@ -44,7 +44,7 @@ module.exports = {
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
 			filename: "index.html",
-			template: path.join(srcDir, "index.html"),
+			template: path.join(SRC_DIR, "index.html"),
 		}),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash:12].css",

@@ -2,16 +2,15 @@ const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
 
-const nodeEnv = process.env.NODE_ENV || "development";
-const distDir = path.resolve(__dirname, "dist");
+const DIST_DIR = path.resolve(__dirname, "dist");
 
 module.exports = merge(common, {
-	mode: nodeEnv,
+	mode: process.env.NODE_ENV || "development",
 	devtool: "inline-source-map",
 	devServer: {
 		port: 9000,
 		static: {
-			directory: distDir,
+			directory: DIST_DIR,
 		},
 		devMiddleware: {
 			index: "index.html",
